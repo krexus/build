@@ -656,6 +656,8 @@ function lunch()
         product=
     fi
 
+    local device=$(echo -n $selection | sed -e "s/[^_]*_\([^-]*\).*/\1/")
+
     local variant_and_version variant version
     variant_and_version=${selection#*-} # Trim everything up to first dash
     if [ "$variant_and_version" != "$selection" ]; then
@@ -672,6 +674,7 @@ function lunch()
     fi
 
     export TARGET_PRODUCT=$product
+    export TARGET_DEVICE=$device
     export TARGET_BUILD_VARIANT=$variant
     if [ -n "$version" ]; then
       export TARGET_PLATFORM_VERSION=$version
