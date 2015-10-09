@@ -574,6 +574,8 @@ function lunch()
 
     export TARGET_BUILD_APPS=
 
+    local device=$(echo -n $selection | sed -e "s/[^_]*_\([^-]*\).*/\1/")
+
     local variant=$(echo -n $selection | sed -e "s/^[^\-]*-//")
     check_variant $variant
     if [ $? -ne 0 ]
@@ -603,6 +605,7 @@ function lunch()
     fi
 
     export TARGET_PRODUCT=$product
+    export TARGET_DEVICE=$device
     export TARGET_BUILD_VARIANT=$variant
     export TARGET_BUILD_TYPE=release
 
