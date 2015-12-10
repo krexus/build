@@ -808,13 +808,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   if HasVendorPartition(input_zip):
     system_progress -= 0.1
 
+  build = GetBuildProp("ro.build.id", OPTIONS.info_dict)
+  date = GetBuildProp("ro.build.date", OPTIONS.info_dict)
   model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
-  build = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+  version = GetBuildProp("ro.build.version.release", OPTIONS.info_dict)
 
-  script.Print("**************************************************");
-  script.Print("*     Krexus 9.0 for the %s                              *"%(model));
-  script.Print("*     Compiled: %s *     "%(build));
-  script.Print("**************************************************");
+  script.Print("*************************************************");
+  script.Print("*                                 Krexus %s                                 *"%(version));
+  script.Print("*     Device: %s                                                      *"%(model));
+  script.Print("*     Number: %s                                                *"%(build));
+  script.Print("*     Compiled: %s            *"%(date));
+  script.Print("*************************************************");
 
   script.ShowProgress(system_progress, 0)
 
