@@ -1641,6 +1641,7 @@ function mk_timer()
     echo
     if [ $ret -eq 0 ] ; then
         echo -n "${color_success}#### make completed successfully "
+	paplay $(gettop)/vendor/krexus/utils/sounds/success.wav &> /dev/null #hide error messages
     else
         echo -n "${color_failed}#### make failed to build some targets "
     fi
