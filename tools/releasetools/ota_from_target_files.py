@@ -405,7 +405,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   metadata["ota-type"] = "BLOCK"
 
-  AppendAssertions(script, OPTIONS.info_dict, oem_dicts)
+  #AppendAssertions(script, OPTIONS.info_dict, oem_dicts)
   device_specific.FullOTA_Assertions()
 
   # Two-step package strategy (in chronological order, which is *not*
