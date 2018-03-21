@@ -565,7 +565,7 @@ function breakfast()
     GZOSP_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/gzosp/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/krexus/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -638,13 +638,13 @@ function lunch()
         # if we can't find a product, try to grab it off the GZOSP GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/gzosp/build/tools/roomservice.py $product
+        vendor/krexus/build/tools/roomservice.py $product
         cd - > /dev/null
         check_product $product
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/gzosp/build/tools/roomservice.py $product true
+        vendor/krexus/build/tools/roomservice.py $product true
         cd - > /dev/null
     fi
 
@@ -1660,7 +1660,7 @@ function reposync() {
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/gzosp/build/tools/repopick.py $@
+    $T/vendor/krexus/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
@@ -2066,4 +2066,4 @@ addcompletions
 
 export ANDROID_BUILD_TOP=$(gettop)
 
-. $ANDROID_BUILD_TOP/vendor/gzosp/build/envsetup.sh
+. $ANDROID_BUILD_TOP/vendor/krexus/build/envsetup.sh
